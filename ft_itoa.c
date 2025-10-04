@@ -6,7 +6,7 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 10:09:20 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/02 10:55:23 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/04 09:40:50 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,15 @@ size_t	nb_size(long n)
 {
 	size_t	size;
 
-	size = 2;
-	if (n < 0)
+	size = 0;
+	if (n <= 0)
 	{
 		size++;
-		n = -n;
 	}
-	while (n / 10 != 0)
+	while (n)
 	{
-		size++;
 		n /= 10;
+		size++;
 	}
 	return (size);
 }
@@ -33,25 +32,23 @@ size_t	nb_size(long n)
 char	*ft_itoa(int n)
 {
 	long	nbr;
-	size_t	sign;
+	int		len;
 	char	*nb;
 
 	nbr = n;
-	sign = 1;
-	nb = malloc(sizeof(char) * (nb_size(nbr)));
+	len = nb_size(n);
+	nb = malloc(sizeof(char) * (len + 1));
 	if (!nb)
 		return (0);
+	nb[len] = '\0';
 	if (nbr < 0)
 	{
-		sign *= -1;
-		*nb = '-';
-		nb++;
+		nb[0] = '-';
 	}
-	if (nbr >= 10)
+	while (len-- > (n < 0))
 	{
-		ft_itoa(nbr / 10);
-		*nb = (nb % 10 + '0');
-		nb++;
+		nb[len] = nbr % 10 + '0';
+		nbr /= 10;
 	}
 	return (nb);
 }

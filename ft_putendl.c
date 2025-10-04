@@ -6,7 +6,7 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 11:41:13 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/02 13:48:38 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/04 10:08:47 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ void	ft_putendl(char *s, int fd)
 {
 	while (*s)
 		write(fd, s++, 1);
-	ft_putchar_fd("\n", 1);
+	write(fd, "\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:48:13 by flvejux           #+#    #+#             */
-/*   Updated: 2025/09/30 17:40:55 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/04 10:58:37 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		i;
+	size_t	i;
 	char	*substr;
 
 	i = 0;

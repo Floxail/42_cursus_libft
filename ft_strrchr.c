@@ -6,7 +6,7 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 12:27:07 by flvejux           #+#    #+#             */
-/*   Updated: 2025/09/30 15:32:54 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/04 10:57:03 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ char	*ft_strrchr(const char *s, int c)
 	{
 		if (s[len] == c)
 			return (*s);
-		else
-			len--;
+		len--;
 	}
 	return (0);
 }

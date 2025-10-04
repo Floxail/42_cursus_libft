@@ -6,60 +6,94 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 08:49:17 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/02 10:05:19 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/04 10:30:33 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_word_len(char *str, char c)
-{
-	int	i;
 
-	i = 0;
-	while (str[i] && str[i] != c)
-		i++;
-	return (i);
+static void	ft_free_tab(char **tab, size_t j)
+{
+	while (j--)
+		free(tab[j]);
+	free(tab);
 }
 
-size_t	ft_count_words(char *s, char c)
+static size_t	ft_wordcount(const char *s, char c)
 {
-	size_t	word;
+	size_t	count;
+	int		in_word;
 
-	word = 0;
+	count = 0;
+	in_word = 0;
 	while (*s)
 	{
-		if (*str && *str != c)
+		if (*s != c && !in_word)
 		{
-			word++;
-			str += ft_word_len(str, c);
+			in_word = 1;
+			count++;
 		}
-		while (*str && *str == c)
-			str++;
+		else if (*s == c)
+			in_word = 0;
+		s++;
 	}
+	return (count);
+}
+
+static char	*ft_allocate_word(const char *s, char c, size_t *index)
+{
+	size_t	start;
+	size_t	len;
+	char	*word;
+
+	while (s[*index] && s[*index] == c)
+		(*index)++;
+	start = *index;
+	while (s[*index] && s[*index] != c)
+		(*index)++;
+	len = *index - start;
+	word = malloc(sizeof(char) * (len + 1));
+	if (!word)
+		return (NULL);
+	ft_strlcpy(word, s + start, len + 1);
 	return (word);
+}
+
+static int	ft_fill_tab(char **tab, const char *s, char c)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			tab[j] = ft_allocate_word(s, c, &i);
+			if (!tab[j++])
+				return (ft_free_tab(tab, j), 0);
+		}
+		else
+			i++;
+	}
+	tab[j] = NULL;
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		i;
-	char	**words;
+	char	**tab;
+	size_t	word_count;
 
-	i = 0;
-	words = malloc(sizeof(char) * ft_count_words(s, c) + 1);
-	if (!words)
-		return (0);
-	while (*s)
-	{
-		if (*s != c)
-		{
-			words[i] = ft_strndup(s, ft_word_len(s, c));
-			str += ft_word_len(s, c);
-			i++;
-		}
-		while (*s && *s == c)
-			s++;
-	}
-	words[i] = 0;
-	return (words);
+	if (!s)
+		return (NULL);
+	word_count = ft_wordcount(s, c);
+	tab = malloc((word_count + 1) * sizeof(char *));
+	if (!tab)
+		return (NULL);
+	if (!ft_fill_tab(tab, s, c))
+		return (NULL);
+	return (tab);
 }
