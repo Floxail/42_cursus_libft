@@ -6,7 +6,7 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 12:22:48 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/04 10:36:36 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/04 11:28:41 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 char	*strchr(const char *s, int c)
 {
-	while (*s)
+	int	i;
+
+	i = 0;
+	while (s[i])
 	{
 		if (*s == (char)c)
-			return (*s);
-		s++;
+			return ((char *)&s[i]);
+		i++;
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 14:49:19 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/04 10:56:35 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/04 11:32:35 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*strnstr(const char *big, const char *little, size_t len)
 			len--;
 		}
 		if (!little[i + j])
-			return (big + i);
+			return ((char *)&big[i]);
 		i++;
 	}
 	return (0);
