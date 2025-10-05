@@ -6,7 +6,7 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 10:59:09 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/05 09:14:37 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/05 11:34:10 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	size_t	i;
 
+	i = 0;
 	while (s[i])
 	{
 		f(i, &s[i]);

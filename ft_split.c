@@ -6,12 +6,11 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 08:49:17 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/05 09:10:52 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/05 11:21:52 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 static void	ft_free(char **tab, size_t j)
 {

@@ -6,7 +6,7 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 11:48:35 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/05 09:07:20 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/05 11:37:11 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	long	nbr;
 
-	nbr = nb;
+	nbr = n;
 	if (nbr < 0)
 	{
 		nbr *= -1;
