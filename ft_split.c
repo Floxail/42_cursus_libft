@@ -6,14 +6,14 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 08:49:17 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/04 10:30:33 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/05 09:10:52 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 
-static void	ft_free_tab(char **tab, size_t j)
+static void	ft_free(char **tab, size_t j)
 {
 	while (j--)
 		free(tab[j]);
@@ -73,7 +73,7 @@ static int	ft_fill_tab(char **tab, const char *s, char c)
 		{
 			tab[j] = ft_allocate_word(s, c, &i);
 			if (!tab[j++])
-				return (ft_free_tab(tab, j), 0);
+				return (ft_free(tab, j), 0);
 		}
 		else
 			i++;

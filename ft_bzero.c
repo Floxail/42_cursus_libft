@@ -6,7 +6,7 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 10:42:16 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/04 09:33:11 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/05 08:41:58 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_bzero(void *s, size_t n)
 	str = (char *)s;
 	while (i < n)
 	{
-		str[i] = '\0';
+		str[i] = '0';
 		i++;
 	}
 }

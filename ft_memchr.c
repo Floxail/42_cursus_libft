@@ -6,7 +6,7 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 13:22:40 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/04 09:28:21 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/05 08:37:54 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (*(unsigned char *)(s + i) == (unsigned char)c)
-			return ((void *)(s + i));
+			return ((void *)&s[i]);
 		i++;
 	}
 	return (0);

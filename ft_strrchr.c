@@ -6,7 +6,7 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 12:27:07 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/04 11:33:59 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/05 09:17:57 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strrchr(const char *s, int c)
 	while (len > 0)
 	{
 		if (s[len] == c)
-			return ((char*)&s[len]);
+			return ((char *)&s[len]);
 		len--;
 	}
 	return (0);

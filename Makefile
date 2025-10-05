@@ -6,7 +6,7 @@
 #    By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/02 11:53:10 by flvejux           #+#    #+#              #
-#    Updated: 2025/10/04 11:12:35 by flvejux          ###   ########.fr        #
+#    Updated: 2025/10/04 12:21:52 by flvejux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRCS =	ft_atoi.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c
+
 BNS = 
 
 OBJS = ${SRCS:.c=.o}
