@@ -6,7 +6,7 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 13:17:51 by flvejux           #+#    #+#             */
-/*   Updated: 2025/09/30 17:12:38 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/05 12:33:48 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
+	if (n == 0)
+		return (0);
 	while (*s1 == *s2 && *s1 && n > 0)
 	{
 		s1++;
 		s2++;
 		n--;
 	}
-	if (n == 0)
-		return (0);
 	return (*s1 - *s2);
 }

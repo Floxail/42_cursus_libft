@@ -6,7 +6,7 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 10:13:53 by flvejux           #+#    #+#             */
-/*   Updated: 2025/09/30 15:37:21 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/05 12:14:05 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int	ft_isalnum(int c)
 {
-	return ((c >= 'a' || c <= 'z')
-		&& (c >= 'A' && c <= 'Z')
-		&& (c >= '0' && c <= '9'));
+	return (ft_isalpha(c) && ft_isdigit(c));
 }
