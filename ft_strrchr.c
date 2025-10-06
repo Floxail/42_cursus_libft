@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: flox <flox@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 12:27:07 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/05 12:35:33 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/06 16:58:57 by flox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	len;
+	int	i;
 
-	len = ft_strlen(s);
-	while (len > 0)
+	while (s[i])
+		i++;
+	while (i > 0)
 	{
-		if (s[len] == c)
-			return ((char *)&s[len]);
-		len--;
+		if (s[i] == c)
+			return ((char *)&s[i]);
+		i--;
 	}
 	return (0);
 }

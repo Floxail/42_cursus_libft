@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: flox <flox@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 10:42:16 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/05 13:54:12 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/06 10:57:39 by flox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_bzero(void *s, size_t n)
 	str = (unsigned char *)s;
 	while (i < n)
 	{
-		str[i] = '0';
+		str[i] = 0;
 		i++;
 	}
 }

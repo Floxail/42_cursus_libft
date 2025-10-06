@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+         #
+#    By: flox <flox@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/02 11:53:10 by flvejux           #+#    #+#              #
-#    Updated: 2025/10/04 12:21:52 by flvejux          ###   ########.fr        #
+#    Updated: 2025/10/06 11:07:54 by flox             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,7 @@ clean:
 	rm -f $(OBJS_BNS)
 
 fclean:
-	rm -f $(NAME)
+	rm -f *.o
 
 re: fclean all
 
