@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flox <flox@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: floxail <floxail@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 14:49:19 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/06 16:23:13 by flox             ###   ########.fr       */
+/*   Updated: 2025/10/08 09:13:37 by floxail          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	j = 0;
 	if (!little[j])
 		return (0);
-	while (big[i])
+	while (big[i] && i < len)
 	{
 		j = 0;
-		while (big[i + j] == little[j] && len > 0)
+		while (big[i + j] == little[j] && i + j < len && little[j])
 		{
 			j++;
-			len--;
 		}
 		if (!little[j])
 			return ((char *)&big[i]);
