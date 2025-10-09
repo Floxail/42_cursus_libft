@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstcler.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/30 10:57:55 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/09 12:54:02 by flvejux          ###   ########.fr       */
+/*   Created: 2025/10/09 13:11:04 by flvejux           #+#    #+#             */
+/*   Updated: 2025/10/09 13:13:44 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	unsigned char	*d;
-	unsigned char	*s;
+	t_list	**tmp;
 
-	if (!dest && !src)
-		return (0);
-	d = (unsigned char *)dest;
-	s = (unsigned char *)src;
-	if (dest > src)
-	{
-		while (n--)
-			d[n] = s[n];
-	}
-	else
-		ft_memcpy(dest, src, n);
-	return (dest);
+	tmp = lst->next;
+	while (lst->next)
+		del(tmp->next);
+	free(lst);
 }
