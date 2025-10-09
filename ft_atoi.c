@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: floxail <floxail@student.42.fr>            +#+  +:+       +#+        */
+/*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 14:59:23 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/08 10:32:59 by floxail          ###   ########.fr       */
+/*   Updated: 2025/10/09 11:16:46 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@ int	ft_atoi(const char *nptr)
 {
 	int	sign;
 	int	nb;
+	int	i;
 
 	sign = 1;
 	nb = 0;
-	if (nb == '0' || !nb)
-		return (0);
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
+	i = 0;
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if (*nptr == '-')
+		if (nptr[i] == '-')
 			sign *= -1;
-		nptr++;
+		i++;
 	}
-	while (ft_isdigit(*nptr))
+	while (ft_isdigit(nptr[i]))
 	{
-		nb = (nb * 10) + (*nptr - '0');
-		nptr++;
+		nb = (nb * 10) + (nptr[i] - '0');
+		i++;
 	}
 	return (sign * nb);
 }

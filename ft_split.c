@@ -6,82 +6,63 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 08:49:17 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/05 12:01:30 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/09 10:27:20 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_wordcount(const char *s, char c)
+static int	ft_word_len(const char *str, char c)
 {
-	size_t	count;
-	int		in_word;
-
-	count = 0;
-	in_word = 0;
-	while (*s)
-	{
-		if (*s != c && !in_word)
-		{
-			in_word = 1;
-			count++;
-		}
-		else if (*s == c)
-			in_word = 0;
-		s++;
-	}
-	return (count);
-}
-
-static char	*ft_allocate_word(const char *s, char c, size_t *index)
-{
-	size_t	start;
-	size_t	len;
-	char	*word;
-
-	while (s[*index] && s[*index] == c)
-		(*index)++;
-	start = *index;
-	while (s[*index] && s[*index] != c)
-		(*index)++;
-	len = *index - start;
-	word = malloc(sizeof(char) * (len + 1));
-	if (!word)
-		return (NULL);
-	ft_strlcpy(word, s + start, len + 1);
-	return (word);
-}
-
-static int	ft_fill_tab(char **tab, const char *s, char c)
-{
-	size_t	i;
-	size_t	j;
+	int	i;
 
 	i = 0;
-	j = 0;
-	while (s[i])
+	while (str[i] && str[i] != c)
+		i++;
+	return (i);
+}
+
+static int	ft_count_words(const char *str, char c)
+{
+	int	words;
+
+	words = 0;
+	while (*str)
 	{
-		if (s[i] != c)
-			tab[j] = ft_allocate_word(s, c, &i);
-		else
-			i++;
+		if (*str != c)
+		{
+			words++;
+			str += ft_word_len(str, c);
+		}
+		if (*str == c)
+			str++;
 	}
-	tab[j] = NULL;
-	return (1);
+	return (words);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**tab;
-	size_t	word_count;
+	char	**strs;
+	int		i;
 
-	if (!s)
-		return (NULL);
-	word_count = ft_wordcount(s, c);
-	tab = malloc((word_count + 1) * sizeof(char *));
-	if (!tab)
-		return (NULL);
-	if (!ft_fill_tab(tab, s, c))
-		return (NULL);
-	return (tab);
+	strs = malloc(sizeof(char *) * ft_count_words(s, c));
+	if (!strs)
+		return (0);
+	i = 0;
+	while (*s)
+	{
+		if (*s != c)
+		{
+			strs[i] = malloc(ft_word_len(s, c) + 1);
+			if (!strs)
+				free(strs[i]);
+			ft_strlcpy(strs[i], s, ft_word_len(s, c));
+			s += ft_word_len(s, c);
+			i++;
+		}
+		while (*s && *s == c)
+			s++;
+	}
+	strs[i] = 0;
+	return (strs);
 }
