@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: floxail <floxail@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 10:57:55 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/04 09:59:36 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/08 10:36:02 by floxail          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	else if (d > s)
 		while (n--)
 			d[n] = s[n];
-	return (dest);
+	return (d);
 }

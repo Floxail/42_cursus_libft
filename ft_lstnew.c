@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnnew.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: floxail <floxail@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 12:22:40 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/05 11:22:09 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/09 07:38:22 by floxail          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstnew(void *content)
 	t_list	*element;
 
 	element = malloc(sizeof(t_list));
-	!if (!element)
+	if (!element)
 		return (0);
 	element->content = content;
 	element->next = NULL;

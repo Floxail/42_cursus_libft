@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: flox <flox@student.42.fr>                  +#+  +:+       +#+         #
+#    By: floxail <floxail@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/02 11:53:10 by flvejux           #+#    #+#              #
-#    Updated: 2025/10/06 11:07:54 by flox             ###   ########.fr        #
+#    Updated: 2025/10/09 07:38:25 by floxail          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ SRCS =	ft_atoi.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c
 
-BNS = 
+BNS = ft_lst
 
 OBJS = ${SRCS:.c=.o}
 
