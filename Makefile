@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: floxail <floxail@student.42.fr>            +#+  +:+       +#+         #
+#    By: flox <flox@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/02 11:53:10 by flvejux           #+#    #+#              #
-#    Updated: 2025/10/09 07:38:25 by floxail          ###   ########.fr        #
+#    Updated: 2025/10/11 13:02:37 by flox             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFlAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 SRCS =	ft_atoi.c \
 		ft_bzero.c \
@@ -49,29 +49,40 @@ SRCS =	ft_atoi.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c
 
-BNS = ft_lst
+BNS = ft_lstadd_back.c \
+	ft_lstadd_front.c \
+	ft_lstclear.c \
+	ft_lstdelone.c \
+	ft_lstiter.c \
+	ft_lstlast.c \
+	ft_lstmap.c \
+	ft_lstnew.c \
+	ft_lstsize.c \
 
-OBJS = ${SRCS:.c=.o}
+OBJS = $(SRCS:.c=.o)
 
-OBJS_BNS = ${BNS:.c=.o}
+OBJS_BNS = $(BNS:.c=.o)
 
 NAME = libft.a
 
 all : $(NAME)
 
 .c.o :
-	${CC} ${CFlAGS} -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS)
 	ar rcs $(NAME) $(OBJS)
+
+bonus : $(OBJS) $(OBJS_BNS)
+	ar rcs $(NAME) $(OBJS) $(OBJS_BNS)
 
 clean:
 	rm -f $(OBJS)
 	rm -f $(OBJS_BNS)
 
 fclean:
-	rm -f *.o
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re 

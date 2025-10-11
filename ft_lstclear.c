@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flox <flox@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/30 15:26:55 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/11 12:11:00 by flox             ###   ########.fr       */
+/*   Created: 2025/10/10 17:33:32 by flox              #+#    #+#             */
+/*   Updated: 2025/10/11 13:15:52 by flox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+void	ft_lstclear(t_list *lst, void (*del)(void *))
 {
-	int		i;
-	char	*dest;
+	t_list	*tmp;
 
-	i = 0;
-	dest = malloc(sizeof(char) * ft_strlen(s) + 1);
-	if (!dest)
-		return (NULL);
-	while (s[i])
+	while (*lst)
 	{
-		dest[i] = s[i];
-		i++;
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, (*del));
+		*lst = tmp;
 	}
-	dest[i] = '\0';
-	return (dest);
+	*lst = 0;
 }

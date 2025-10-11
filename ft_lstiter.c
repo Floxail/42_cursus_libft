@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flox <flox@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/30 15:26:55 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/11 12:11:00 by flox             ###   ########.fr       */
+/*   Created: 2025/10/10 19:19:58 by flox              #+#    #+#             */
+/*   Updated: 2025/10/10 19:38:55 by flox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	int		i;
-	char	*dest;
-
-	i = 0;
-	dest = malloc(sizeof(char) * ft_strlen(s) + 1);
-	if (!dest)
-		return (NULL);
-	while (s[i])
+	while (*lst)
 	{
-		dest[i] = s[i];
-		i++;
+		f(lst->content);
+		lst->next;
 	}
-	dest[i] = '\0';
-	return (dest);
 }

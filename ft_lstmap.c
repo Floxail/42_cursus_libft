@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flox <flox@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/30 15:26:55 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/11 12:11:00 by flox             ###   ########.fr       */
+/*   Created: 2025/10/10 20:43:18 by flox              #+#    #+#             */
+/*   Updated: 2025/10/11 11:31:18 by flox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int		i;
-	char	*dest;
+	t_list	*tmp;
+	t_list	*newlst;
 
-	i = 0;
-	dest = malloc(sizeof(char) * ft_strlen(s) + 1);
-	if (!dest)
-		return (NULL);
-	while (s[i])
+	tmp = 0;
+	while (lst)
 	{
-		dest[i] = s[i];
-		i++;
+		newlst = ft_lstnew((*f)(lst->content));
+		if (newlst)
+		{
+			ft_lstclear(&lst, (*del));
+			return (0);
+		}
+		ft_lstadd_back(&tmp, newlst);
+		lst = lst->next;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (tmp);
 }

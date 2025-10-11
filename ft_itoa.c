@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
+/*   By: flox <flox@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 10:09:20 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/09 11:32:23 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/10/10 12:41:54 by flox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ size_t	nb_size(long n)
 	size_t	size;
 
 	size = 0;
+	if (n == 0)
+		return (1);
 	if (n < 0)
 	{
-		n = -n;
+		n *= -1;
+		size++;
 	}
 	while (n > 0)
 	{
@@ -32,27 +35,28 @@ size_t	nb_size(long n)
 char	*ft_itoa(int n)
 {
 	long	nbr;
-	int		len;
+	size_t	len;
+	size_t	i;
 	char	*nb;
-	int		i;
 
 	i = 0;
-	nbr = n;
-	len = nb_size(n);
+	nbr = (long)n;
+	len = nb_size(nbr);
 	nb = malloc(sizeof(char) * (len + 1));
 	if (!nb)
 		return (0);
 	nb[len] = '\0';
+	if (n == 0)
+		nb[i] = '0';
 	if (nbr < 0)
 	{
 		nb[0] = '-';
-		nbr -= -nbr;
+		nbr *= -1;
 	}
-	while (nbr / 10 != 0)
+	while (nbr != 0)
 	{
-		nb[i] = nbr % 10 + '0';
+		nb[(len - 1) - i++] = (nbr % 10) + '0';
 		nbr /= 10;
-		i++;
 	}
 	return (nb);
 }
