@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flox <flox@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: floxail <floxail@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 10:44:39 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/11 13:10:24 by flox             ###   ########.fr       */
+/*   Updated: 2025/10/13 09:22:51 by floxail          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,8 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*last;
-
-	if (*lst == 0)
-	{
+	if (!*lst)
 		*lst = new;
-	}
-	last = ft_lstlast(*lst);
-	new = last->next;
+	else
+		ft_lstlast(*lst)->next = new;
 }

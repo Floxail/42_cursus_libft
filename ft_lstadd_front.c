@@ -6,7 +6,7 @@
 /*   By: floxail <floxail@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 13:09:36 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/08 12:17:20 by floxail          ###   ########.fr       */
+/*   Updated: 2025/10/13 09:23:00 by floxail          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	new->content = *lst;
+	new->next = *lst;
 	*lst = new;
 }

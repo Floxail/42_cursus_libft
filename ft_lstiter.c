@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flox <flox@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: floxail <floxail@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 19:19:58 by flox              #+#    #+#             */
-/*   Updated: 2025/10/10 19:38:55 by flox             ###   ########.fr       */
+/*   Updated: 2025/10/13 09:19:42 by floxail          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	while (*lst)
+	while (lst)
 	{
-		f(lst->content);
-		lst->next;
+		(f)(lst->content);
+		lst = lst->next;
 	}
 }
