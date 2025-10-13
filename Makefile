@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: floxail <floxail@student.42.fr>            +#+  +:+       +#+         #
+#    By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/02 11:53:10 by flvejux           #+#    #+#              #
-#    Updated: 2025/10/13 09:24:15 by floxail          ###   ########.fr        #
+#    Updated: 2025/10/13 13:20:48 by flvejux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -47,7 +47,7 @@ SRCS =	ft_atoi.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c
+		ft_putnbr_fd.c \
 
 BNS = ft_lstadd_back.c \
 	ft_lstadd_front.c \
@@ -65,17 +65,21 @@ OBJS_BNS = $(BNS:.c=.o)
 
 NAME = libft.a
 
+AR = ar rcs
+
 all : $(NAME)
+
+$(NAME) : $(OBJS)
+	$(AR) $(NAME) $(OBJS)
+	@echo "lib $(NAME) Created"
 
 .c.o :
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME) : $(OBJS)
-	ar rcs $(NAME) $(OBJS)
-
-bonus : $(OBJS) $(OBJS_BNS)
-	ar rcs $(NAME) $(OBJS) $(OBJS_BNS)
-
+bonus: $(OBJS_BNS) $(OBJS)
+	$(AR) $(NAME) $(OBJS) $(OBJS_BNS)
+	@echo "lib $(NAME) + bns ok"
+	
 clean:
 	rm -f $(OBJS)
 	rm -f $(OBJS_BNS)
@@ -85,4 +89,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re bonus

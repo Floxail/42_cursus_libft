@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: floxail <floxail@student.42.fr>            +#+  +:+       +#+        */
+/*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 09:34:36 by floxail           #+#    #+#             */
-/*   Updated: 2025/10/13 09:39:09 by floxail          ###   ########.fr       */
+/*   Updated: 2025/10/13 14:10:16 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
 	char	*substr;
 
-	i = 0;
 	if (!s)
 		return (0);
 	if (start >= ft_strlen(s))
@@ -26,13 +24,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		substr[0] = '\0';
 		return (substr);
 	}
+	if (len > ft_strlen(s + start))
+		len = ft_strlen(s + start);
 	substr = malloc(sizeof(char) * (len + 1));
 	if (!substr)
 		return (0);
-	if (start < len)
-		i = ft_strlen(s) - start;
-	if (i > len)
-		i = len;
-	ft_strlcpy(substr, s + start, i + 1);
+	ft_strlcpy(substr, s + start, len + 1);
 	return (substr);
 }
+
+// #include <stdio.h>
+// int main ()
+// {
+// 	printf("%s", ft_substr("cancoillotte", 0, 420000));
+// }
