@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: floxail <floxail@student.42.fr>            +#+  +:+       +#+        */
+/*   By: flvejux <flvejux@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 10:04:55 by flvejux           #+#    #+#             */
-/*   Updated: 2025/10/08 11:22:53 by floxail          ###   ########.fr       */
+/*   Created: 2025/12/09 07:49:08 by flvejux           #+#    #+#             */
+/*   Updated: 2025/12/09 07:49:46 by flvejux          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_stack *lst)
 {
 	int	i;
 

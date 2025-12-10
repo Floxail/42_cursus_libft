@@ -6,7 +6,7 @@
 /*   By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 14:59:23 by flvejux           #+#    #+#             */
-/*   Updated: 2025/11/19 10:34:30 by flvejux          ###   ########.fr       */
+/*   Updated: 2025/11/25 09:40:22 by flvejux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,6 @@ long	ft_atol(const char *nptr)
 		i++;
 	}
 	if ((nb * sign) > INT_MAX || (nb * sign) < INT_MIN)
-		return (FALSE);
+		return (0);
 	return (sign * nb);
 }
