@@ -6,7 +6,7 @@
 #    By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/02 11:53:10 by flvejux           #+#    #+#              #
-#    Updated: 2025/10/13 13:20:48 by flvejux          ###   ########.fr        #
+#    Updated: 2025/12/13 10:56:14 by flvejux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS =	ft_atoi.c \
 		ft_isascii.c \
 		ft_isdigit.c \
 		ft_isprint.c \
+		ft_itoa.c \
 		ft_memchr.c \
 		ft_memcmp.c \
 		ft_memcpy.c \
@@ -41,7 +42,7 @@ SRCS =	ft_atoi.c \
 		ft_strjoin.c \
 		ft_strtrim.c \
 		ft_split.c \
-		ft_itoa.c \
+		ft_swap.c \
 		ft_strmapi.c \
 		ft_striteri.c \
 		ft_putchar_fd.c \
