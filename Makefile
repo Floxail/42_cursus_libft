@@ -6,7 +6,7 @@
 #    By: flvejux <flvejux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/02 11:53:10 by flvejux           #+#    #+#              #
-#    Updated: 2025/12/13 10:56:14 by flvejux          ###   ########.fr        #
+#    Updated: 2025/12/26 08:53:41 by flvejux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,22 +71,22 @@ AR = ar rcs
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
 	@echo "lib $(NAME) Created"
 
 .c.o :
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 bonus: $(OBJS_BNS) $(OBJS)
-	$(AR) $(NAME) $(OBJS) $(OBJS_BNS)
+	@$(AR) $(NAME) $(OBJS) $(OBJS_BNS)
 	@echo "lib $(NAME) + bns ok"
 	
 clean:
-	rm -f $(OBJS)
-	rm -f $(OBJS_BNS)
+	@rm -f $(OBJS)
+	@rm -f $(OBJS_BNS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
